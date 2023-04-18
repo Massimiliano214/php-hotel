@@ -73,16 +73,28 @@
                 
 
                 if(!$hotel['parking']) {
-                    unset($hotel);
+                    
+                    \array_splice($hotel, 1, 1);
                     
                 }
                 Var_dump($hotel['parking']);
             }
 
-        } elseif($_GET['parking'] == 0) {
-            unset($hotel);
-        }
+            } else if($_GET['parking'] == 0) {
+                foreach($hotels as $key => $hotel) {
+                
+                
+
+                    if($hotel['parking']) {
+                        unset($hotel);
+                        
+                    }
+                    Var_dump($hotel['parking']);
+                }
+            }
+            Var_dump($hotels);
         ?>
+
         <table class="table table-dark table-striped my-5">
             <thead>
                 <tr>
