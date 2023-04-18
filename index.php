@@ -72,12 +72,12 @@
                 
                 
 
-                if(!$hotel['parking']) {
+                if($hotel['parking']) {
                     
-                    \array_splice($hotel, 1, 1);
+                    $newParking[] = "$hotel";
                     
                 }
-                Var_dump($hotel['parking']);
+                var_dump($newParking);
             }
 
             } else if($_GET['parking'] == 0) {
@@ -85,14 +85,13 @@
                 
                 
 
-                    if($hotel['parking']) {
-                        unset($hotel);
+                    if(!$hotel['parking']) {
+                        $newNoParking[] = "$hotel";
                         
                     }
-                    Var_dump($hotel['parking']);
+                    var_dump($newNoParking);
                 }
             }
-            Var_dump($hotels);
         ?>
 
         <table class="table table-dark table-striped my-5">
