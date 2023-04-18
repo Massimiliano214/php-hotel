@@ -68,9 +68,19 @@
         </form>
 
         <?php if($_GET['parking'] == 1) {
-            
-        } elseif($_GET['parking'] == 0) {
+            foreach($hotels as $key => $hotel) {
+                
+                
 
+                if(!$hotel['parking']) {
+                    unset($hotel);
+                    
+                }
+                Var_dump($hotel['parking']);
+            }
+
+        } elseif($_GET['parking'] == 0) {
+            unset($hotel);
         }
         ?>
         <table class="table table-dark table-striped my-5">
