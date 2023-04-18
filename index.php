@@ -55,23 +55,33 @@
     <main>
         
 
-    <div class="container">
-        <table class="table table-dark table-striped">
-                <thead>
+    <div class="container py-5">
+
+        <form action="index.php" method="GET">
+            <select name="parking" id="parking">
+                <option value="null">Scegli</option>
+                <option value="1">Parcheggio</option>
+                <option value="0">Senza Parcheggio</option>
+            </select>
+
+            <button type="submit">Cerca</button>
+        </form>
+
+        <?php if($_GET['parking'] == 1) {
+            
+        } elseif($_GET['parking'] == 0) {
+
+        }
+        ?>
+        <table class="table table-dark table-striped my-5">
+            <thead>
                 <tr>
-                <?php 
+                    <?php foreach($hotels[0] as $key => $hotel) {
                     
-                
-                foreach($hotels[0] as $key => $hotel) {
+                        echo "<th scope='col'>" . $key; "</th>";
 
-                     
-
-                
-                    echo "'<th scope=\"col\">'" . trim($key,"\'"); "'</th>'";
-
-                   
-                }
-                ?>
+                    }
+                    ?>
                 
                 </tr>
             </thead>
@@ -90,12 +100,12 @@
                     if($i == 0) {
                         $i++;
 
-                        echo "'<th scope=\"col\">'" . $value; "'</th>'";
+                        echo "<th scope='col'>" . $value; "</th>";
 
     
                     } else {
                         $i++;
-                        echo "'<td scope=\"col\">'" . $value; "'</td>'";
+                        echo "<td scope='col'>" . $value; "</td>";
                     }
                     
                 }
