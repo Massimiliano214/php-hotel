@@ -77,14 +77,29 @@
             <tbody>
                 
             <?php foreach($hotels as $hotel) {
-                    
+                
+                
+
                 echo "<tr>";
                 
+                
+                $i = 0;
                 foreach($hotel as $key => $value) {
+                    
+                    if($i == 0) {
+                        $i++;
 
-                    echo "'<td scope=\"col\">'" . $value; "'</td>'";
+                        echo "'<th scope=\"col\">'" . $value; "'</th>'";
 
+    
+                    } else {
+                        $i++;
+                        echo "'<td scope=\"col\">'" . $value; "'</td>'";
+                    }
+                    
                 }
+                
+                
                 echo "</tr>";
             }
             ?>
