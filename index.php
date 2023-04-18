@@ -64,9 +64,10 @@
                 
                 foreach($hotels[0] as $key => $hotel) {
 
-                    
+                     
+
                 
-                    echo "'<th scope=\"col\">'" . $key; "'</th>'";
+                    echo "'<th scope=\"col\">'" . trim($key,"\'"); "'</th>'";
 
                    
                 }
